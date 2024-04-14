@@ -133,23 +133,287 @@
 
 
     <!-- main section part -->
-    <section class="bg-[#F7F8F8] container max-w-6xl px-4 lg:px-10 mx-auto border-t-2 border-solid border-green-500 lg:rounded-t-[60px]">
+    <section
+        class="bg-[#F7F8F8] container max-w-6xl px-4 lg:px-10 mx-auto border-t-2 border-solid border-green-500 lg:rounded-t-[60px]">
         <div>
             <!-- only text -->
             <div class="text-center my-5 lg:mt-[100px] lg:mb-[50px]">
                 <h2 class="text-[#030712] text-2xl lg:text-[38px] mb-3 lg:mb-6 font-bold">P.H Paribahan</h2>
-                <p class="text-[#03071299] text-xl lg:text-[18px] font-normal">Yes, you can run unit tests and view the results directly <br>within the app. The integrated testing features allow for a streamlined .</p>
+                <p class="text-[#03071299] text-xl lg:text-[18px] font-normal">Yes, you can run unit tests and view the
+                    results directly <br>within the app. The integrated testing features allow for a streamlined .</p>
             </div>
 
             <!-- Route and remaining ticket -->
-            <div>
+            <div class="bg-[#FFFFFF] my-5 lg:my-[60px] flex items-center rounded-3xl">
                 <!-- first div with main info -->
-                <div></div>
+                <div class="p-4">
+                    <div class="flex  items-center justify-between ">
+                        <div class="flex gap-5 items-center p-4">
+                            <img src="./images/bus-logo.png" alt="Bus- logo">
+                            <div>
+                                <h3 class="text-[#030712] font-bold text-xl lg:text-3xl">Greenline Paribahan</h3>
+                                <p class="text-[#03071299] font-normal text-xs lg:text-xl">Coach-009-WEB ! AC_Business
+                                </p>
+                            </div>
+                        </div>
+                        <div class="flex gap-2 items-center p-4 bg-[#1DD10026] rounded-[10px]">
+                            <img src="./images/seat-green.png" alt="">
+                            <p><span id="remainingSeat">40 </span>Seats left</p>
+                        </div>
+                    </div>
+                    <div class="bg-[#F7F8F8] p-4 lg:p-7 rounded-2xl">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[#03071299] text-[18px] font-semibold">Route</p>
+                            <h4 class="text-[#030712] text-[18px] font-bold">Dhaka - Sylhet</h4>
+                        </div>
+                        <hr class="my-3 border border-dashed border-[#03071233]">
+                        <div class="flex justify-between items-center">
+                            <p class="text-[#03071299] text-[18px] font-semibold">Departure Time</p>
+                            <h4 class="text-[#030712] text-[18px] font-bold">9:00 PM</h4>
+                        </div>
+                        <hr class="my-3 border border-dashed border-[#03071233]">
+                        <div class="flex gap-3 justify-between items-center">
+                            <h4 class="text-[#030712CC] font-medium text-[16px] bg-[#0307120D] p-3 rounded-md">Boarding
+                                Point - Laxmipur</h4>
+                            <h4 class="text-[#030712CC] font-medium text-[16px] bg-[#0307120D] p-3 rounded-md">Dropping
+                                Point - Bogura</h4>
+                            <h4 class="text-[#030712CC] font-medium text-[16px] bg-[#0307120D] p-3 rounded-md">Est. Time
+                                - 11 Hour</h4>
+                        </div>
+                    </div>
+                </div>
                 <!-- 2nd div with a divider -->
-                <div></div>
+                <div>
+                    <img src="./images/info-devider.png" alt="">
+                </div>
                 <!-- third div with ticket price -->
-                <div></div>
+                <div>
+                    <div class="flex lg:ml-[100px] flex-col gap-2 justify-center items-center">
+                        <img class="w-8 lg:w-[40px] lg:h-[40px] h-8 text-center" src="./images/fare.png" alt="">
+                        <h2 class="text-[#030712] font-bold text-3xl">550 Taka</h2>
+                        <p class="text-[#03071299] font-medium text-xl">per seat</p>
+                    </div>
+                </div>
             </div>
+
+
+            <!-- SEAT AND PRICE main mark -->
+
+            <!-- main div  -->
+            <div class="my-5 bg-[#FFFFFF] rounded-3xl p-5 gap-10 grid grid-cols-1 lg:grid-cols-8 ">
+                <!-- div - one - starts  -->
+                <div class="col-span-5">
+                    <div>
+                        <h3>Select Your Seat</h3>
+                        <hr class="my-3 border border-dashed border-[#03071233]">
+                        <div class="flex gap-2 justify-between">
+                            <div class="flex gap-2">
+                                <img src="./images/seat-gray.png" alt="">
+                                <p>Available</p>
+                            </div>
+                            <div class="flex gap-2">
+                                <img src="./images/seat-green-filled.png" alt="">
+                                <p>Available</p>
+                            </div>
+                        </div>
+                        <hr class="my-3 border border-dashed border-[#03071233]">
+                    </div>
+                    <div>
+                        <div class="flex justify-end">
+                            <img class="bg-slate-200 px-5 rounded-lg py-3" src="./images/tabler-icon-steering-wheel.png"
+                                alt="">
+                        </div>
+                        <!-- seat -->
+                        <div class="flex lg:gap-12 flex-col lg:flex-row justify-evenly">
+                            <!-- seat a1-a2 -->
+                            <div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1 ">A</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">A1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">A2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">B</p>
+                                    </div>
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">B1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">B2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">C</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">D</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">D1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">D2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">E</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">E1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">E2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">F</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">F1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">F2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">G</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">G1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">G2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">H</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">H1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">H2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">I</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">I1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">I2</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div>
+                                        <p class="text-[#03071280] P-1">J</p>
+                                    </div>
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">J1</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">J2</kbd>
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                            <!-- seat a3-a4 -->
+                            <div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">A3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">A4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">B3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">B4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">D3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">D4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">E3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">E4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">F3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">F4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">G3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">G4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">H3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">H4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">I3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">I4</kbd>
+                                    </div>
+                                </div>
+                                <div class="flex gap-4 my-3 items-center">
+                                    <div class="flex gap-4">
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">J3</kbd>
+                                        <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">J4</kbd>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- div - one - ends  -->
+
+
+                <!-- div - two - starts  -->
+                <div class=" col-span-3">
+                    <h3>hello from the other side</h3>
+                </div>
+
+                <!-- div - two - ends  -->
+
+
+
+            </div>
+
         </div>
     </section>
 
