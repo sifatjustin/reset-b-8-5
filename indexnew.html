@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Test</title>
+        <link href="https://cdn.jsdelivr.net/npm/daisyui@4.10.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+        <script src="https://cdn.tailwindcss.com"></script>
+    </head>
+</head>
+
+<body>
+    <div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">A3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">A4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">B3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">B4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">D3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">D4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">E3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">E4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">F3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">F4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">G3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">G4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">H3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">H4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">I3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">I4</kbd>
+            </div>
+        </div>
+        <div class="flex gap-4 my-3 items-center">
+            <div class="flex gap-4">
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">J3</kbd>
+                <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">J4</kbd>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="p-4 bg-[#F7F8F8] rounded-lg">
+        <div class="flex justify-between ">
+            <h3>Seat <sup class="text-[14px] text-[#FFFFFF] font-extrabold  bg-[#1DD100] rounded-[5px] "
+                    id="seatSelected"></sup></h3>
+            <h3>Class</h3>
+            <h3>Price</h3>
+        </div>
+        <hr class="my-3 border border-dashed border-[#03071233]">
+        <div class="" id="seatInfoContainer">
+
+        </div>
+        <div class="flex justify-between">
+            <h3>Total Price</h3>
+            <p id="totalPrice"></p>
+        </div>
+        <!-- coupon part -->
+        <div class="flex justify-between px-3 py-2 rounded-2xl mt-3 bg-[#FFFFFF]">
+            <input placeholder="Have any coupon?" type="text">
+            <button class="bg-[#1DD100] px-4 py-2 text-[#FFFFFF] font-semibold rounded-xl opacity-50 cursor-not-allowed"
+                disabled>Apply</button>
+        </div>
+        <div class="flex justify-between mt-3">
+            <h3>Grand Total</h3>
+            <p id="grandTotalPrice"></p>
+        </div>
+    </div>
+
+
+    <script>
+        const buttons = document.querySelectorAll(".myButton");
+        const seatInfoContainer = document.getElementById("seatInfoContainer");
+        const totalPriceElement = document.getElementById("totalPrice");
+        const grandTotalPriceElement = document.getElementById("grandTotalPrice");
+
+        let selectedSeats = [];
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", function () {
+                const buttonName = this.textContent;
+
+                if (this.classList.contains("bg-[#1DD100]")) {
+                    // Remove seat from selected seats
+                    selectedSeats = selectedSeats.filter(seat => seat.name !== buttonName);
+                    this.classList.remove("bg-[#1DD100]");
+                } else {
+                    // Check if less than 4 seats are already selected
+                    if (selectedSeats.length < 4) {
+                        // Add seat to selected seats
+                        selectedSeats.push({
+                            name: buttonName,
+                            type: "Economy",
+                            price: 550 // Assuming each seat price is 550
+                        });
+                        this.classList.add("bg-[#1DD100]");
+                    } else {
+                        alert("You can only select up to 4 seats.");
+                    }
+                }
+
+                // Update seat info
+                updateSeatInfo();
+            });
+        });
+
+        function updateSeatInfo() {
+            // Clear previous seat info
+            seatInfoContainer.innerHTML = "";
+
+            // Append seat info for each selected seat
+            selectedSeats.forEach(seat => {
+                const seatDiv = document.createElement("div");
+                seatDiv.classList = "flex justify-between"
+                seatDiv.innerHTML = `
+                    <p>${seat.name}</p>
+                    <p>${seat.type}</p>
+                    <p>${seat.price}</p>
+                   
+                `;
+                seatInfoContainer.appendChild(seatDiv);
+            });
+
+            // Calculate total price
+            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
+            totalPriceElement.textContent = totalPrice;
+
+            // Calculate grand total price
+            grandTotalPriceElement.textContent = totalPrice;
+        }
+    </script>
+
+
+
+
+
+
+
+
+
+
+</body>
+
+</html>

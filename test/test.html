@@ -10,43 +10,50 @@
 </head>
 
 <body>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <section id="totalSection"></section>
-    <div id="anotherDiv">40</div>
-    <!-- total price -->
+
+
+
+
     <div>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <section id="totalSection"></section>
+        <div id="anotherDiv">40</div>
+        total price
+        <div>
+
+        </div>
+        <span id="clickedCount"></span>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
+        <button
+            class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
+            Me</button>
 
     </div>
 
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-    <button
-        class="myButton bg-blue-500  text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline">Click
-        Me</button>
-
-
     <script>
+        // Get all buttons with the class "myButton"
         const buttons = document.querySelectorAll(".myButton");
         const totalSection = document.getElementById("totalSection");
         const anotherDiv = document.getElementById("anotherDiv");
@@ -67,18 +74,26 @@
                 }
                 updateTotalSection();
                 updateAnotherDiv();
+                // Update the clicked count in the span element
+                updateClickedCount();
             });
         });
 
+        // Function to update the total price section
         function updateTotalSection() {
             totalSection.textContent = "Total: $" + totalValue;
         }
 
+        // Function to update the remaining seats section
         function updateAnotherDiv() {
             anotherDivValue = 40 - selectedButtonsCount;
             anotherDiv.textContent = anotherDivValue;
         }
 
+        // Function to update the clicked count in the span element
+        function updateClickedCount() {
+            clickedCountSpan.textContent = "Clicked: " + selectedButtonsCount;
+        }
 
     </script>
 </body>
