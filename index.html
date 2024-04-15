@@ -82,16 +82,16 @@
             <div class="flex flex-col lg:flex-row gap-[60px] lg:justify-center mx-auto">
 
                 <!-- 15% off -->
-                <div class="flex bg-[#FFBF0F] rounded-2xl lg:rounded-3xl">
+                <div class="flex bg-[#FFBF0F]  rounded-2xl lg:rounded-3xl">
                     <!-- first div text -->
-                    <div class="flex flex-col justify-center items-start pl-5 pr-5 lg:pl-10 ">
-                        <h1 class="text-[#030712CC] font-black text-2xl lg:text-[40px]">15% OFF</h1>
+                    <div class="flex flex-col lg:justify-center items-start pl-5 pr-5 lg:pl-10 ">
+                        <h1 class="text-[#030712CC] font-black text-xl lg:text-[40px]">15% OFF</h1>
                         <h5 class="text-[#030712CC] font-semibold text-xl lg:text-[20px]">on your next purchase</h5>
                         <p class="text-[#03071280] font-medium text-xl lg:text-[16px]">use by January 2024</p>
 
                     </div>
                     <!-- second div img -->
-                    <div><img src="./images/cupon-devider.png" alt=""></div>
+                    <div><img src="./images/cupon-devider.png" class="max-w-[133%] lg:w-fit" alt=""></div>
                     <!-- third div text -->
                     <div class="flex flex-col justify-center items-start pl-5 pr-5 lg:pr-10 ">
                         <h2 class="text-[#030712CC] font-extrabold text-2xl lg:text-[32px]">NEW15
@@ -111,7 +111,7 @@
 
                     </div>
                     <!-- second div img -->
-                    <div><img src="./images/cupon-devider.png" alt=""></div>
+                    <div><img src="./images/cupon-devider.png" class="max-w-[135%] lg:w-fit" alt=""></div>
                     <!-- third div text -->
                     <div class="flex flex-col justify-center items-start pl-5 pr-5 lg:pr-10 ">
                         <h2 class="text-[#030712CC] font-extrabold text-2xl lg:text-[32px]">Couple 20
@@ -134,7 +134,7 @@
 
     <!-- main section part -->
     <section
-        class="bg-[#F7F8F8] container max-w-6xl px-4 lg:px-10 mx-auto border-t-2 border-solid border-green-500 lg:rounded-t-[60px]">
+        class="bg-[#F7F8F8] container max-w-6xl px-4 lg:px-10 mx-auto border-t-2 border-solid border-green-500 lg:rounded-t-[60px] rounded-xl">
         <div>
             <!-- only text -->
             <div class="text-center my-5 lg:mt-[100px] lg:mb-[50px]">
@@ -144,19 +144,19 @@
             </div>
 
             <!-- Route and remaining ticket -->
-            <div class="bg-[#FFFFFF] my-5 lg:my-[60px] flex items-center rounded-3xl">
+            <div class="bg-[#FFFFFF] my-5 lg:my-[60px] flex items-center flex-col lg:flex-row rounded-3xl">
                 <!-- first div with main info -->
                 <div class="p-4">
                     <div class="flex  items-center justify-between ">
-                        <div class="flex gap-5 items-center p-4">
-                            <img src="./images/bus-logo.png" alt="Bus- logo">
+                        <div class="flex lg:gap-5 gap-2 items-center p-4">
+                            <img src="./images/bus-logo.png" class="w-10 " alt="Bus- logo">
                             <div>
                                 <h3 class="text-[#030712] font-bold text-xl lg:text-3xl">Greenline Paribahan</h3>
                                 <p class="text-[#03071299] font-normal text-xs lg:text-xl">Coach-009-WEB ! AC_Business
                                 </p>
                             </div>
                         </div>
-                        <div class="flex gap-2 items-center p-4 bg-[#1DD10026] rounded-[10px]">
+                        <div class="flex gap-2 items-center p-2 lg:p-4 bg-[#1DD10026] rounded-[10px]">
                             <img src="./images/seat-green.png" alt="">
                             <p><span id="remainingSeat">40 </span>Seats left</p>
                         </div>
@@ -172,19 +172,25 @@
                             <h4 class="text-[#030712] text-[18px] font-bold">9:00 PM</h4>
                         </div>
                         <hr class="my-3 border border-dashed border-[#03071233]">
-                        <div class="flex gap-3 justify-between items-center">
-                            <h4 class="text-[#030712CC] font-medium text-[16px] bg-[#0307120D] p-3 rounded-md">Boarding
+                        <div class="flex gap-3 justify-between lg:items-center">
+                            <h4
+                                class="text-[#030712CC] font-medium p-1 lg:text-[16px] text-xs bg-[#0307120D] lg:p-3 rounded-md">
+                                Boarding
                                 Point - Laxmipur</h4>
-                            <h4 class="text-[#030712CC] font-medium text-[16px] bg-[#0307120D] p-3 rounded-md">Dropping
+                            <h4
+                                class="text-[#030712CC] font-medium p-1 lg:text-[16px] text-xs bg-[#0307120D] lg:p-3 rounded-md">
+                                Dropping
                                 Point - Bogura</h4>
-                            <h4 class="text-[#030712CC] font-medium text-[16px] bg-[#0307120D] p-3 rounded-md">Est. Time
+                            <h4
+                                class="text-[#030712CC] font-medium p-1 lg:text-[16px] text-xs bg-[#0307120D] lg:p-3 rounded-md">
+                                Est. Time
                                 - 11 Hour</h4>
                         </div>
                     </div>
                 </div>
                 <!-- 2nd div with a divider -->
                 <div>
-                    <img src="./images/info-devider.png" alt="">
+                    <img src="./images/info-devider.png" class="hidden lg:block" alt="">
                 </div>
                 <!-- third div with ticket price -->
                 <div>
@@ -200,9 +206,10 @@
             <!-- SEAT AND PRICE main mark -->
 
             <!-- main div  -->
-            <div class="my-5  bg-[#FFFFFF] rounded-3xl p-10 gap-5 grid justify-center grid-cols-1 lg:grid-cols-6 ">
+            <div
+                class="my-5  bg-[#FFFFFF] rounded-3xl p-3 lg:p-10 gap-5 lg:grid justify-center grid-cols-1 lg:grid-cols-6 ">
                 <!-- div - one - starts  -->
-                <div class="col-span-4 lg:w-[700px]">
+                <div class="lg:col-span-4 lg:w-[700px]">
                     <div class="">
                         <h3>Select Your Seat</h3>
                         <hr class="my-3 border border-dashed border-[#03071233]">
@@ -430,10 +437,9 @@
                             </div>
                             <!-- coupon part -->
                             <div class="flex justify-between px-3 py-2 rounded-2xl mt-3 bg-[#FFFFFF]">
-                                <input placeholder="Have any coupon?" type="text">
-                                <button
-                                    class="bg-[#1DD100] px-4 py-2 text-[#FFFFFF] font-semibold rounded-xl opacity-50 cursor-not-allowed"
-                                    disabled>Apply</button>
+                                <input placeholder="Have any coupon?" id="couponCode" type="text">
+                                <button id="applyCouponBtn"
+                                    class="bg-[#1DD100] px-4 btn py-2 text-[#FFFFFF] font-semibold rounded-xl opacity-50 ">Apply</button>
                             </div>
                             <div class="flex justify-between mt-3">
                                 <h3>Grand Total</h3>
@@ -535,8 +541,116 @@
         </div>
     </footer>
 
+    <script>
+        const buttons = document.querySelectorAll(".myButton");
+        const totalSection = document.getElementById("totalSection");
+        const anotherDiv = document.getElementById("remainingSeat");
+        const anotherDiv2 = document.getElementById("seatSelected");
+        const seatName = document.getElementById("seatName");
+        const seatType = document.getElementById("seatType");
+        const seatPrice = document.getElementById("seatPrice");
+        const seatInfoContainer = document.getElementById("seatInfoContainer");
+        const totalPriceElement = document.getElementById("totalPrice");
+        const grandTotalPriceElement = document.getElementById("grandTotalPrice");
+        const applyCouponBtn = document.getElementById("applyCouponBtn");
+        const couponCodeInput = document.getElementById("couponCode");
 
-    <script src="javascript/app.js"></script>
+        let totalValue = 0;
+        let anotherDivValue = 40;
+        let anotherDivValue2 = 0;
+        let selectedButtonsCount = 0;
+        let selectedSeats = [];
+        let couponApplied = false;
+
+        buttons.forEach((button) => {
+            button.addEventListener("click", function () {
+                const buttonName = this.textContent;
+
+                if (this.classList.contains("bg-[#1DD100]")) {
+                    // Remove seat from selected seats
+                    selectedSeats = selectedSeats.filter((seat) => seat.name !== buttonName);
+                    this.classList.remove("bg-[#1DD100]");
+                    totalValue -= 550;
+                    selectedButtonsCount--;
+                } else if (totalValue < 2000 && selectedButtonsCount < 4) {
+                    // Check if less than 4 seats are already selected
+                    // Add seat to selected seats
+                    selectedSeats.push({
+                        name: buttonName,
+                        type: "Economy",
+                        price: 550, // Assuming each seat price is 550
+                    });
+                    this.classList.add("bg-[#1DD100]");
+                    totalValue += 550;
+                    selectedButtonsCount++;
+                } else {
+                    alert("You can only select up to 4 seats.");
+                }
+
+                updateSeatInfo();
+                updateAnotherDiv();
+                updateAnotherDiv2();
+            });
+        });
+
+        applyCouponBtn.addEventListener("click", function () {
+            const couponCode = couponCodeInput.value;
+
+            if (couponCode === "couple20" && selectedButtonsCount === 4 && !couponApplied) {
+                applyCoupon(0.2); // 20% discount
+                couponApplied = true;
+            } else if (couponCode === "new15" && selectedButtonsCount === 4 && !couponApplied) {
+                applyCoupon(0.15); // 15% discount
+                couponApplied = true;
+            } else {
+                alert("Invalid coupon code or conditions not met.");
+            }
+        });
+
+        function applyCoupon(discountRate) {
+            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
+            const discountedPrice = totalPrice * (1 - discountRate);
+
+            totalPriceElement.textContent = discountedPrice;
+            grandTotalPriceElement.textContent = discountedPrice;
+        }
+
+        function updateAnotherDiv() {
+            anotherDivValue = 40 - selectedButtonsCount;
+            anotherDiv.textContent = anotherDivValue;
+        }
+
+        function updateAnotherDiv2() {
+            anotherDivValue2 = selectedButtonsCount;
+            anotherDiv2.textContent = anotherDivValue2;
+        }
+
+        function updateSeatInfo() {
+            // Clear previous seat info
+            seatInfoContainer.innerHTML = "";
+
+            // Append seat info for each selected seat
+            selectedSeats.forEach((seat) => {
+                const seatDiv = document.createElement("div");
+                seatDiv.classList = "flex justify-between";
+                seatDiv.innerHTML = `
+      <p>${seat.name}</p>
+      <p>${seat.type}</p>
+      <p>${seat.price}</p>
+    `;
+                seatInfoContainer.appendChild(seatDiv);
+            });
+
+            // Calculate total price
+            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
+            totalPriceElement.textContent = totalPrice;
+
+            // Calculate grand total price
+            grandTotalPriceElement.textContent = totalPrice;
+        }
+
+    </script>
+    <!-- <script src="javascript/app.js"></script> -->
 </body>
 
 </html>
