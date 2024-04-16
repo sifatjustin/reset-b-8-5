@@ -133,6 +133,7 @@
 
 
     <!-- main section part -->
+
     <section
         class="bg-[#F7F8F8] container max-w-6xl px-4 lg:px-10 mx-auto border-t-2 border-solid border-green-500 lg:rounded-t-[60px] rounded-xl">
         <div>
@@ -220,7 +221,7 @@
                             </div>
                             <div class="flex gap-2">
                                 <img src="./images/seat-green-filled.png" alt="">
-                                <p>Available</p>
+                                <p class="text-[#1DD100]">Selected</p>
                             </div>
                         </div>
                         <hr class="my-3 border border-dashed border-[#03071233]">
@@ -262,6 +263,7 @@
                                         <kbd class="kbd myButton px-5 rounded-[10px] text-[#03071280]">C2</kbd>
                                     </div>
                                 </div>
+                              
                                 <div class="flex gap-4 my-3 items-center">
                                     <div>
                                         <p class="text-[#03071280] P-1">D</p>
@@ -422,8 +424,8 @@
                         <div class="p-4 bg-[#F7F8F8] rounded-lg">
                             <div class="flex justify-between ">
                                 <h3>Seat <sup
-                                        class="text-[14px] text-[#FFFFFF] font-extrabold  bg-[#1DD100] rounded-[5px] "
-                                        id="seatSelected"></sup></h3>
+                                        class="text-[14px] p-1 text-[#FFFFFF] font-extrabold  bg-[#1DD100] rounded-[5px] "
+                                        id="seatSelected">0</sup></h3>
                                 <h3>Class</h3>
                                 <h3>Price</h3>
                             </div>
@@ -433,17 +435,19 @@
                             </div>
                             <div class="flex justify-between">
                                 <h3>Total Price</h3>
-                                <p id="totalPrice"></p>
+                                <p id="totalPrice">0</p>
                             </div>
+                            <div id="discountPrice"></div>
                             <!-- coupon part -->
-                            <div class="flex justify-between px-3 py-2 rounded-2xl mt-3 bg-[#FFFFFF]">
+                            <div id="couponDisplay"
+                                class="flex justify-between px-3 py-2 rounded-2xl mt-3 bg-[#FFFFFF]">
                                 <input placeholder="Have any coupon?" id="couponCode" type="text">
                                 <button id="applyCouponBtn"
                                     class="bg-[#1DD100] px-4 btn py-2 text-[#FFFFFF] font-semibold rounded-xl opacity-50 ">Apply</button>
                             </div>
                             <div class="flex justify-between mt-3">
                                 <h3>Grand Total</h3>
-                                <p id="grandTotalPrice"></p>
+                                <p id="grandTotalPrice">0</p>
                             </div>
                         </div>
                     </div>
@@ -457,8 +461,8 @@
                         </div>
                         <div class="py-3">
                             <h4 class="text-[#030712] text-[18px] font-semibold">Phone Number*</h4>
-                            <input placeholder="Enter your phone number" class="p-3 rounded-[12px] mt-2 border w-full"
-                                type="number">
+                            <input id="phoneNumberInput" placeholder="Enter your phone number"
+                                class="p-3 rounded-[12px] mt-2 border w-full" type="number">
                         </div>
                         <div class="py-3">
                             <h4 class="text-[#030712] text-[18px] font-semibold">Email ID</h4>
@@ -470,8 +474,9 @@
                     <!-- Next button -->
                     <!-- Open the modal using ID.showModal() method -->
                     <div>
-                        <button class="py-3 text-[#ffffff] font-extrabold text-xl rounded-2xl mt-3 w-full bg-[#1DD100]"
-                            onclick="my_modal_1.showModal()">Next</button>
+                        <button id="nextButton"
+                            class="py-3 text-[#ffffff] font-extrabold text-xl rounded-2xl mt-3 w-full bg-[#1DD100]"
+                            onclick="my_modal_1.showModal()" disabled>Next</button>
                         <dialog id="my_modal_1" class=" w-1/2  mx-auto">
                             <div class="flex justify-center items-center flex-col p-8 rounded-2xl">
                                 <img src="./images/success.png" alt="">
@@ -492,6 +497,7 @@
                             </div>
                         </dialog>
                     </div>
+
                     <div class="flex justify-around mt-3 ">
                         <p class="text-[#03071299] font-normal text-[16px] underline">Terms and Conditions</p>
                         <p class="text-[#03071299] font-normal text-[16px] underline">Cancellation Policy</p>
@@ -506,7 +512,6 @@
 
         </div>
     </section>
-
 
     <!-- footer -->
     <footer class=" bg-[#030712] py-5 lg:mt-10 lg:py-10">
@@ -541,116 +546,8 @@
         </div>
     </footer>
 
-    <script>
-        const buttons = document.querySelectorAll(".myButton");
-        const totalSection = document.getElementById("totalSection");
-        const anotherDiv = document.getElementById("remainingSeat");
-        const anotherDiv2 = document.getElementById("seatSelected");
-        const seatName = document.getElementById("seatName");
-        const seatType = document.getElementById("seatType");
-        const seatPrice = document.getElementById("seatPrice");
-        const seatInfoContainer = document.getElementById("seatInfoContainer");
-        const totalPriceElement = document.getElementById("totalPrice");
-        const grandTotalPriceElement = document.getElementById("grandTotalPrice");
-        const applyCouponBtn = document.getElementById("applyCouponBtn");
-        const couponCodeInput = document.getElementById("couponCode");
 
-        let totalValue = 0;
-        let anotherDivValue = 40;
-        let anotherDivValue2 = 0;
-        let selectedButtonsCount = 0;
-        let selectedSeats = [];
-        let couponApplied = false;
-
-        buttons.forEach((button) => {
-            button.addEventListener("click", function () {
-                const buttonName = this.textContent;
-
-                if (this.classList.contains("bg-[#1DD100]")) {
-                    // Remove seat from selected seats
-                    selectedSeats = selectedSeats.filter((seat) => seat.name !== buttonName);
-                    this.classList.remove("bg-[#1DD100]");
-                    totalValue -= 550;
-                    selectedButtonsCount--;
-                } else if (totalValue < 2000 && selectedButtonsCount < 4) {
-                    // Check if less than 4 seats are already selected
-                    // Add seat to selected seats
-                    selectedSeats.push({
-                        name: buttonName,
-                        type: "Economy",
-                        price: 550, // Assuming each seat price is 550
-                    });
-                    this.classList.add("bg-[#1DD100]");
-                    totalValue += 550;
-                    selectedButtonsCount++;
-                } else {
-                    alert("You can only select up to 4 seats.");
-                }
-
-                updateSeatInfo();
-                updateAnotherDiv();
-                updateAnotherDiv2();
-            });
-        });
-
-        applyCouponBtn.addEventListener("click", function () {
-            const couponCode = couponCodeInput.value;
-
-            if (couponCode === "couple20" && selectedButtonsCount === 4 && !couponApplied) {
-                applyCoupon(0.2); // 20% discount
-                couponApplied = true;
-            } else if (couponCode === "new15" && selectedButtonsCount === 4 && !couponApplied) {
-                applyCoupon(0.15); // 15% discount
-                couponApplied = true;
-            } else {
-                alert("Invalid coupon code or conditions not met.");
-            }
-        });
-
-        function applyCoupon(discountRate) {
-            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
-            const discountedPrice = totalPrice * (1 - discountRate);
-
-            totalPriceElement.textContent = discountedPrice;
-            grandTotalPriceElement.textContent = discountedPrice;
-        }
-
-        function updateAnotherDiv() {
-            anotherDivValue = 40 - selectedButtonsCount;
-            anotherDiv.textContent = anotherDivValue;
-        }
-
-        function updateAnotherDiv2() {
-            anotherDivValue2 = selectedButtonsCount;
-            anotherDiv2.textContent = anotherDivValue2;
-        }
-
-        function updateSeatInfo() {
-            // Clear previous seat info
-            seatInfoContainer.innerHTML = "";
-
-            // Append seat info for each selected seat
-            selectedSeats.forEach((seat) => {
-                const seatDiv = document.createElement("div");
-                seatDiv.classList = "flex justify-between";
-                seatDiv.innerHTML = `
-      <p>${seat.name}</p>
-      <p>${seat.type}</p>
-      <p>${seat.price}</p>
-    `;
-                seatInfoContainer.appendChild(seatDiv);
-            });
-
-            // Calculate total price
-            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
-            totalPriceElement.textContent = totalPrice;
-
-            // Calculate grand total price
-            grandTotalPriceElement.textContent = totalPrice;
-        }
-
-    </script>
-    <!-- <script src="javascript/app.js"></script> -->
+    <script src="javascript/app.js"></script>
 </body>
 
 </html>

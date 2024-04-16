@@ -314,17 +314,19 @@
                             </div>
                             <div class="flex justify-between">
                                 <h3>Total Price</h3>
-                                <p id="totalPrice"></p>
+                                <p id="totalPrice">0</p>
                             </div>
+                            <div id="discountPrice"></div>
                             <!-- coupon part -->
-                            <div class="flex justify-between px-3 py-2 rounded-2xl mt-3 bg-[#FFFFFF]">
+                            <div id="couponDisplay"
+                                class="flex justify-between px-3 py-2 rounded-2xl mt-3 bg-[#FFFFFF]">
                                 <input placeholder="Have any coupon?" id="couponCode" type="text">
                                 <button id="applyCouponBtn"
                                     class="bg-[#1DD100] px-4 btn py-2 text-[#FFFFFF] font-semibold rounded-xl opacity-50 ">Apply</button>
                             </div>
                             <div class="flex justify-between mt-3">
                                 <h3>Grand Total</h3>
-                                <p id="grandTotalPrice"></p>
+                                <p id="grandTotalPrice">0</p>
                             </div>
                         </div>
                     </div>
@@ -338,8 +340,8 @@
                         </div>
                         <div class="py-3">
                             <h4 class="text-[#030712] text-[18px] font-semibold">Phone Number*</h4>
-                            <input placeholder="Enter your phone number" class="p-3 rounded-[12px] mt-2 border w-full"
-                                type="number">
+                            <input id="phoneNumberInput" placeholder="Enter your phone number"
+                                class="p-3 rounded-[12px] mt-2 border w-full" type="number">
                         </div>
                         <div class="py-3">
                             <h4 class="text-[#030712] text-[18px] font-semibold">Email ID</h4>
@@ -351,8 +353,9 @@
                     <!-- Next button -->
                     <!-- Open the modal using ID.showModal() method -->
                     <div>
-                        <button class="py-3 text-[#ffffff] font-extrabold text-xl rounded-2xl mt-3 w-full bg-[#1DD100]"
-                            onclick="my_modal_1.showModal()">Next</button>
+                        <button id="nextButton"
+                            class="py-3 text-[#ffffff] font-extrabold text-xl rounded-2xl mt-3 w-full bg-[#1DD100]"
+                            onclick="my_modal_1.showModal()" disabled>Next</button>
                         <dialog id="my_modal_1" class=" w-1/2  mx-auto">
                             <div class="flex justify-center items-center flex-col p-8 rounded-2xl">
                                 <img src="./images/success.png" alt="">
@@ -373,6 +376,7 @@
                             </div>
                         </dialog>
                     </div>
+
                     <div class="flex justify-around mt-3 ">
                         <p class="text-[#03071299] font-normal text-[16px] underline">Terms and Conditions</p>
                         <p class="text-[#03071299] font-normal text-[16px] underline">Cancellation Policy</p>
@@ -393,8 +397,20 @@
 
 
     <script>
+        const phoneNumberInput = document.getElementById('phoneNumberInput');
+        const nextButton = document.getElementById('nextButton');
+
+        phoneNumberInput.addEventListener('input', function () {
+            if (phoneNumberInput.value.trim() === '' || selectedButtonsCount === 0) {
+                nextButton.disabled = true;
+            } else {
+                nextButton.disabled = false;
+            }
+        });
+
+        console.log('connected')
         const buttons = document.querySelectorAll(".myButton");
-        const totalSection = document.getElementById("totalSection");
+        // const totalSection = document.getElementById("totalSection");
         const anotherDiv = document.getElementById("remainingSeat");
         const anotherDiv2 = document.getElementById("seatSelected");
         const seatName = document.getElementById("seatName");
@@ -405,6 +421,7 @@
         const grandTotalPriceElement = document.getElementById("grandTotalPrice");
         const applyCouponBtn = document.getElementById("applyCouponBtn");
         const couponCodeInput = document.getElementById("couponCode");
+        const couponDisplay = document.getElementById("couponDisplay")
 
         let totalValue = 0;
         let anotherDivValue = 40;
@@ -458,13 +475,7 @@
             }
         });
 
-        function applyCoupon(discountRate) {
-            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
-            const discountedPrice = totalPrice * (1 - discountRate);
 
-            totalPriceElement.textContent = discountedPrice;
-            grandTotalPriceElement.textContent = discountedPrice;
-        }
 
         function updateAnotherDiv() {
             anotherDivValue = 40 - selectedButtonsCount;
@@ -504,7 +515,7 @@
             const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
             totalPriceElement.textContent = totalPrice; // Update the total price element
         }
-
+        updateTotalPrice();
         // Function to apply coupon discounts
         function applyCoupon(discountRate) {
             const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
@@ -515,7 +526,46 @@
         }
 
         // Call updateTotalPrice initially to set the initial total price
-        updateTotalPrice();
+
+        function applyCoupon(discountRate) {
+
+
+            const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
+            const discountedPrice = totalPrice * (1 - discountRate);
+
+            totalPriceElement.textContent = totalPrice;
+            grandTotalPriceElement.textContent = discountedPrice;
+
+            // Check if the correct coupon is applied
+            if ((couponCodeInput.value === "couple20" && discountRate === 0.2) ||
+                (couponCodeInput.value === "new15" && discountRate === 0.15)) {
+                console.log("Correct coupon applied.");
+                couponCodeInput.classList.add("hidden"); // Add the 'hidden' class to hide the coupon code input
+                couponDisplay.classList.add("hidden"); // Add the 'hidden' class to hide the coupon code input
+
+                // Calculate the discounted price
+                const totalPrice = selectedSeats.reduce((acc, seat) => acc + seat.price, 0);
+                const discountedPrice = totalPrice * (1 - discountRate);
+
+                // Create a paragraph element for displaying the discounted amount
+                const discountParagraph = document.createElement("p");
+                discountParagraph.textContent = `Your total discount is ${totalPrice - discountedPrice} tk`;
+
+                // Get the div with the id "discountPrice"
+                const discountPriceDiv = document.getElementById("discountPrice");
+
+                // Append the discount paragraph inside the "discountPrice" div
+                discountPriceDiv.appendChild(discountParagraph);
+            } else {
+                console.log("Invalid coupon or discount rate.");
+            }
+
+
+
+
+        }
+
+
 
 
     </script>
