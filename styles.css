@@ -1,8 +1,0 @@
-.disabled-button {
-    background-color: #ffffff;
-    /* Set background color to white */
-    color: #000000;
-    /* Set text color to black */
-    cursor: not-allowed;
-    /* Change cursor to not-allowed */
-}
