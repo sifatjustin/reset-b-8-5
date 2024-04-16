@@ -69,7 +69,7 @@ applyCouponBtn.addEventListener("click", function () {
     applyCoupon(0.15);
     couponApplied = true;
   } else {
-    alert("Invalid coupon code , please write them carefully");
+    alert("Invalid coupon code or not enough seats selected , please write them carefully");
   }
 });
 
